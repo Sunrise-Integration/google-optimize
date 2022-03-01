@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
-import {useInjectGoogleOptimize} from "../../hooks/use-inject-google-optimize";
+import {useGoogleOptimize} from "../../hooks/use-google-optimize";
 
 interface Props {
     optimizeContainerID: string
 }
 
 const TestRootComponent: React.FC<Props> = ({ optimizeContainerID }) => {
-    useInjectGoogleOptimize(optimizeContainerID)
+    useGoogleOptimize(optimizeContainerID)
     return null
 }
 

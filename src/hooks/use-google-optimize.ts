@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import  {googleOptimize} from "../core/google-optimize-manager"
 
-export const useInjectGoogleOptimize = (optimizeContainerID: string) => {
+export const useGoogleOptimize = (optimizeContainerID: string) => {
 
     useEffect(() => {
 
