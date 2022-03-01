@@ -1,0 +1,1 @@
+export  { useInjectGoogleOptimize } from './hooks/use-inject-google-optimize'
