@@ -24,15 +24,15 @@
 
 ## Usage
 
-First we need to install the Google Optimize script - we need to make a call to `useInjectGoogleOptimize` passing your `optimizeContainerID`
+First we need to install the Google Optimize script - we need to make a call to `useGoogleOptimize` passing your `optimizeContainerID`
 
 ```jsx
-import {useInjectGoogleOptimize} from '@frontend-sdk/google-optimize'
+import {useGoogleOptimize} from '@frontend-sdk/google-optimize'
 
 const App = () => {
     
     let optimizeContainerID = 'EXAMPLE';
-    useInjectGoogleOptimize(optimizeContainerID);
+    useGoogleOptimize(optimizeContainerID);
 
     return <div>...</div>
 }
