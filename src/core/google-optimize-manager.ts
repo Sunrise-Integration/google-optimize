@@ -32,6 +32,17 @@ class GoogleOptimize {
         this.headScript = this.getScriptTag(source, attributes);
         document.head.appendChild(this.headScript);
     }
+    
+    activateEvent(eventName: string  = 'optimize.activate', options: Object) {
+        // @ts-ignore
+        window.dataLayer = window.dataLayer || [];
+        // @ts-ignore
+        if (window.dataLayer) {
+            // @ts-ignore
+            window.dataLayer.push({'event': eventName});
+        }
+    }
 }
+
 
 export const googleOptimize = new GoogleOptimize()
