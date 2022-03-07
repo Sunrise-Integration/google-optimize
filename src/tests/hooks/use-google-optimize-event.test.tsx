@@ -13,11 +13,7 @@ const TestRootComponent: React.FC<Props> = ({ optimizeContainerID }) => {
     return null
 }
 const TestExceptionRootComponent: React.FC = () => {
-    try {
-        useGoogleOptimizeEvent()
-    } catch (error) {
-        console.error(error);
-    }
+    useGoogleOptimizeEvent()
     return null
 }
 
@@ -35,10 +31,15 @@ describe('useOptimizeEvent Tests', () => {
     })
     
     it('Cannot call `useGoogleOptimizeEvent` without call `useGoogleOptimize` first', () => {
-        try {
-            render(<TestExceptionRootComponent />)
-        } catch (error) {
-           expect(error).toEqual(new Error("You must call useGoogleOptimize hook before this hook.")); 
-        }
+        const spy = jest.spyOn(console, 'error')
+        
+        spy.mockImplementation(() => {
+            try {
+                render(<TestExceptionRootComponent/>)
+            } catch (error) {
+                expect(error).toEqual(new Error("You must call useGoogleOptimize hook before this hook."));
+            }
+        })
+        spy.mockRestore()
     })
 })
