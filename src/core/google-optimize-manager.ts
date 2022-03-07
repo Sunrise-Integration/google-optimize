@@ -33,7 +33,7 @@ class GoogleOptimize {
         document.head.appendChild(this.headScript);
     }
     
-    activateEvent(eventName: string  = 'optimize.activate', options: Object) {
+    activateEvent(eventName: string  = 'optimize.activate', options: Object = {}) {
         if (this.headScript !== null && document.head.contains(this.headScript)) {
             // @ts-ignore
             window.dataLayer = window.dataLayer || [];
