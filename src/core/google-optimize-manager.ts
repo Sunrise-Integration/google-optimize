@@ -34,12 +34,16 @@ class GoogleOptimize {
     }
     
     activateEvent(eventName: string  = 'optimize.activate', options: Object) {
-        // @ts-ignore
-        window.dataLayer = window.dataLayer || [];
-        // @ts-ignore
-        if (window.dataLayer) {
+        if (this.headScript !== null && document.head.contains(this.headScript)) {
             // @ts-ignore
-            window.dataLayer.push({'event': eventName});
+            window.dataLayer = window.dataLayer || [];
+            // @ts-ignore
+            if (window.dataLayer) {
+                // @ts-ignore
+                window.dataLayer.push({'event': eventName});
+            }
+        } else {
+            throw new Error("You must call useGoogleOptimize hook before this hook.");
         }
     }
 }

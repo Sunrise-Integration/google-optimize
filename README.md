@@ -37,3 +37,6 @@ const App = () => {
     return <div>...</div>
 }
 ```
+
+Then you will need to call the event - you ned to call to `useGoogleOptimizeEvent` you can pass an `eventName` or if you left blank it will call `optimize.activate` event.
+You cannot call `useGoogleOptimizeEvent` without call `useGoogleOptimize` first. 
