@@ -7,6 +7,7 @@ import  {googleOptimize} from "../core/google-optimize-manager"
  * @param options
  * @throws {Error} Throws an error if useGoogleOptimize was not called
  */
+
 export const useGoogleOptimizeEvent = (eventName: string = 'optimize.activate', options: Object = {}) => {
 
     useEffect(() => {
