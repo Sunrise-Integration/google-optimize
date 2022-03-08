@@ -16,7 +16,7 @@ export const GoogleOptimizeComponent: Story<Props> = ({ContainerId}) => {
 
 GoogleOptimizeComponent.storyName = 'Google Optimize'
 GoogleOptimizeComponent.args = {
-    ContainerId: 'OPT-PSHC8PZ'
+    ContainerId: 'SAMPLE_ID'
 }
 
 export default  {
