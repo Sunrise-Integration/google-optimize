@@ -1,14 +1,16 @@
 import { useEffect } from 'react'
 import  {googleOptimize} from "../core/google-optimize-manager"
 
-export const useGoogleOptimizeEvent = (eventName: string = 'optimize.activate', options: Object) => {
+/**
+ * 
+ * @param eventName
+ * @param options
+ * @throws {Error} Throws an error if useGoogleOptimize was not called
+ */
+export const useGoogleOptimizeEvent = (eventName: string = 'optimize.activate', options: Object = {}) => {
 
     useEffect(() => {
-        try {
-            googleOptimize.activateEvent(eventName, options);
-        } catch(error) {
-            console.error(error);
-        }
+        googleOptimize.activateEvent(eventName, options);
     }, [])
 }
 

@@ -2,6 +2,7 @@
  * @jest-environment jsdom
  */
 import {googleOptimize} from "../../core/google-optimize-manager"
+import arrayContaining = jasmine.arrayContaining;
 
 const TAG_URL = 'https://www.googleoptimize.com/optimize.js?id=EXAMPLE_ID'
 
@@ -37,6 +38,29 @@ describe('Google Optimize Manager Tests', () => {
 
         expect(scripts.length).toBe(1)
         expect(document.head.childNodes.length).toBe(1)
+    })
+    
+    it('Cannot Add an event without Google Optimized called before', () => {
+       expect(() => googleOptimize.activateEvent()).toThrowError("You must call useGoogleOptimize hook before this hook.")
+    })
+    
+    it('Can call `optimize.activate` event', () => {
+        googleOptimize.addHeadScript(TAG_URL)
+        googleOptimize.activateEvent() // this call optimize.activate by default
+        // @ts-ignore
+        expect(window.dataLayer).toEqual(
+            expect.arrayContaining([{'event': 'optimize.activate'}])
+        )
+    })
+    
+    it('Can call any event', () => {
+        const eventName = 'custom.event'
+        googleOptimize.addHeadScript(TAG_URL)
+        googleOptimize.activateEvent(eventName)
+        // @ts-ignore
+        expect(window.dataLayer).toEqual(
+            expect.arrayContaining([{'event': eventName}])
+        )
     })
 })
 
