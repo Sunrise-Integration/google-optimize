@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
-import {useGoogleOptimize} from "../../hooks/use-google-optimize";
+import {useGoogleOptimize} from "../../hooks/use-google-optimize"
 
 interface Props {
     optimizeContainerID: string
