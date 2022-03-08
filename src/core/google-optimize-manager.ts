@@ -29,22 +29,22 @@ class GoogleOptimize {
     }
 
     addHeadScript(source: string, attributes: object = {}) {
-        this.headScript = this.getScriptTag(source, attributes);
-        document.head.appendChild(this.headScript);
+        this.headScript = this.getScriptTag(source, attributes)
+        document.head.appendChild(this.headScript)
     }
     
-    activateEvent(eventName: string  = 'optimize.activate', options: Object = {}) {
-        if (this.headScript !== null && document.head.contains(this.headScript)) {
+    activateEvent(eventName = 'optimize.activate', options: Object = {}) {
+        if (!(this.headScript !== null && document.head.contains(this.headScript))) {
+            throw new Error("You must call useGoogleOptimize hook before this hook.")
+        } 
+        // @ts-ignore
+        window.dataLayer = window.dataLayer || []
+        // @ts-ignore
+        if (window.dataLayer) {
             // @ts-ignore
-            window.dataLayer = window.dataLayer || [];
-            // @ts-ignore
-            if (window.dataLayer) {
-                // @ts-ignore
-                window.dataLayer.push({'event': eventName});
-            }
-        } else {
-            throw new Error("You must call useGoogleOptimize hook before this hook.");
+            window.dataLayer.push({'event': eventName})
         }
+        
     }
 }
 

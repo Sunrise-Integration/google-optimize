@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
-import {useGoogleOptimizeEvent} from "../../hooks/use-google-optimize-event";
-import {useGoogleOptimize} from "../../hooks/use-google-optimize";
+import {useGoogleOptimizeEvent} from "../../hooks/use-google-optimize-event"
+import {useGoogleOptimize} from "../../hooks/use-google-optimize"
 
 interface Props {
     optimizeContainerID: string
@@ -37,7 +37,7 @@ describe('useOptimizeEvent Tests', () => {
             try {
                 render(<TestExceptionRootComponent/>)
             } catch (error) {
-                expect(error).toEqual(new Error("You must call useGoogleOptimize hook before this hook."));
+                expect(error).toEqual(new Error("You must call useGoogleOptimize hook before this hook."))
             }
         })
         spy.mockRestore()

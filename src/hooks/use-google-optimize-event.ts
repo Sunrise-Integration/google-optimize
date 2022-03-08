@@ -8,10 +8,10 @@ import  {googleOptimize} from "../core/google-optimize-manager"
  * @throws {Error} Throws an error if useGoogleOptimize was not called
  */
 
-export const useGoogleOptimizeEvent = (eventName: string = 'optimize.activate', options: Object = {}) => {
+export const useGoogleOptimizeEvent = (eventName = 'optimize.activate', options: Object = {}) => {
 
     useEffect(() => {
-        googleOptimize.activateEvent(eventName, options);
+        googleOptimize.activateEvent(eventName, options)
     }, [])
 }
 

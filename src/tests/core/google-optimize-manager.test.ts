@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 import {googleOptimize} from "../../core/google-optimize-manager"
-import arrayContaining = jasmine.arrayContaining;
 
 const TAG_URL = 'https://www.googleoptimize.com/optimize.js?id=EXAMPLE_ID'
 
