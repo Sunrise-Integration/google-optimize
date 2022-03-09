@@ -8,7 +8,7 @@ interface Props {
     optimizeContainerID: string
 }
 
-declare let window: DocumentWindow;
+declare let window: DocumentWindow
 
 const TestRootComponent: React.FC<Props> = ({ optimizeContainerID }) => {
     useGoogleOptimize(optimizeContainerID)

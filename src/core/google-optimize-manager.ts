@@ -1,6 +1,6 @@
 import {DocumentWindow} from "./document-window"
 
-declare let window: DocumentWindow;
+declare let window: DocumentWindow
 
 class GoogleOptimize {
     version = '1.0.0'

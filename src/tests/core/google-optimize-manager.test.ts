@@ -6,7 +6,7 @@ import {DocumentWindow} from "../../core/document-window"
 
 const TAG_URL = 'https://www.googleoptimize.com/optimize.js?id=EXAMPLE_ID'
 
-let window: DocumentWindow
+declare let window: DocumentWindow
 
 describe('Google Optimize Manager Tests', () => {
 
