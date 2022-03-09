@@ -4,8 +4,8 @@
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
-    "lint": "eslint --ignore-path .gitignore '**/*.{ts,tsx}'",
-    "lint-fix": "eslint --ignore-path .gitignore '**/*.{ts,tsx}' --fix",
+    "lint": "eslint '**/*.{ts,tsx}'",
+    "lint-fix": "eslint '**/*.{ts,tsx}' --fix",
     "test": "jest --config jestconfig.json",
     "prepare": "npm run build",
     "build": "tsc",

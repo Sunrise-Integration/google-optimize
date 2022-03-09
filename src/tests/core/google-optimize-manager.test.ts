@@ -2,8 +2,11 @@
  * @jest-environment jsdom
  */
 import {googleOptimize} from "../../core/google-optimize-manager"
+import {DocumentWindow} from "../../core/document-window"
 
 const TAG_URL = 'https://www.googleoptimize.com/optimize.js?id=EXAMPLE_ID'
+
+let window: DocumentWindow
 
 describe('Google Optimize Manager Tests', () => {
 
@@ -46,7 +49,7 @@ describe('Google Optimize Manager Tests', () => {
     it('Can call `optimize.activate` event', () => {
         googleOptimize.addHeadScript(TAG_URL)
         googleOptimize.activateEvent() // this call optimize.activate by default
-        // @ts-ignore
+
         expect(window.dataLayer).toEqual(
             expect.arrayContaining([{'event': 'optimize.activate'}])
         )
@@ -56,7 +59,7 @@ describe('Google Optimize Manager Tests', () => {
         const eventName = 'custom.event'
         googleOptimize.addHeadScript(TAG_URL)
         googleOptimize.activateEvent(eventName)
-        // @ts-ignore
+
         expect(window.dataLayer).toEqual(
             expect.arrayContaining([{'event': eventName}])
         )
