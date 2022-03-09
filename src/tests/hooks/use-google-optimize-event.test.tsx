@@ -2,10 +2,13 @@ import * as React from 'react'
 import { render } from '@testing-library/react'
 import {useGoogleOptimizeEvent} from "../../hooks/use-google-optimize-event"
 import {useGoogleOptimize} from "../../hooks/use-google-optimize"
+import {DocumentWindow} from "../../core/document-window"
 
 interface Props {
     optimizeContainerID: string
 }
+
+declare let window: DocumentWindow;
 
 const TestRootComponent: React.FC<Props> = ({ optimizeContainerID }) => {
     useGoogleOptimize(optimizeContainerID)
@@ -24,7 +27,6 @@ describe('useOptimizeEvent Tests', () => {
 
         render(<TestRootComponent optimizeContainerID={optimizeContainerID}/>)
 
-        // @ts-ignore
         expect(window.dataLayer).toEqual(
             expect.arrayContaining([{'event': 'optimize.activate'}])
         )

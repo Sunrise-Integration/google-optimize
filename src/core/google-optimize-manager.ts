@@ -1,3 +1,7 @@
+import {DocumentWindow} from "./document-window"
+
+declare let window: DocumentWindow;
+
 class GoogleOptimize {
     version = '1.0.0'
     headScript: HTMLScriptElement | null = null
@@ -30,21 +34,19 @@ class GoogleOptimize {
 
     addHeadScript(source: string, attributes: object = {}) {
         this.headScript = this.getScriptTag(source, attributes)
-        document.head.appendChild(this.headScript)
+        document.head.append(this.headScript)
     }
-    
-    activateEvent(eventName = 'optimize.activate', options: Object = {}) {
+
+    activateEvent(eventName = 'optimize.activate', options: object = {}) {
         if (!(this.headScript !== null && document.head.contains(this.headScript))) {
             throw new Error("You must call useGoogleOptimize hook before this hook.")
-        } 
-        // @ts-ignore
-        window.dataLayer = window.dataLayer || []
-        // @ts-ignore
-        if (window.dataLayer) {
-            // @ts-ignore
-            window.dataLayer.push({'event': eventName})
         }
-        
+
+        window.dataLayer = window.dataLayer || []
+
+        if (window.dataLayer) {
+            window.dataLayer.push({'event': eventName, ...options})
+        }
     }
 }
 
