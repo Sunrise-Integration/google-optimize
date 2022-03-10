@@ -42,7 +42,7 @@ import {useGoogleTagManager} from '@frontend-sdk/google-tag-manager'
 
 const App = () => {
     useGoogleTagManager({
-      containerId: 'G-CONTAINER_ID'
+      containerId: 'G-CONTAINER_ID',
       gaSessionId: `${new Date().getTime()}`
     })    
     let optimizeContainerID = 'EXAMPLE';
