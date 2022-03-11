@@ -47,7 +47,7 @@ You will need a [Google Analytics](https://marketingplatform.google.com/about/an
 2. Then you will need to call the event - you need to call to `useGoogleOptimizeEvent` you can pass an `eventName` or if you left blank it will call `optimize.activate` event.
 You cannot call `useGoogleOptimizeEvent` without call `useGoogleOptimize` first.
 
-3. You can call `useGoogleOptimizeEvent` like ```jsx useGoogleOptimizeEvent(eventName, options)``` to cal an specific event.
+3. You can call `useGoogleOptimizeEvent` like `useGoogleOptimizeEvent(eventName, options)` to cal an specific event.
 
 ```jsx
 import {useGoogleOptimize} from '@sunrise-integration/google-optimize'
